@@ -57,7 +57,7 @@ const AnimatedPortfolio = ({ dictionary }: { dictionary: HeroContent }) => {
     {
       title: "E-commerce de Tecnología",
       description:
-        "Creación de un e-commerce especializado en productos de tecnología, con un diseño moderno y funcional. La plataforma está optimizada para ofrecer una experiencia de compra fluida y segura, permitiendo a los usuarios navegar entre una amplia gama de productos y realizar compras fácilmente.",
+        "Creación de un e-commerce especializado en productos de tecnología. Esta plataforma permite a los usuarios explorar una amplia gama de productos y, en lugar de realizar compras directamente, se redirige al chat con el vendedor para coordinar la compra, facilitando así una comunicación más directa y personalizada.",
       image: "/2.png",
     },
     {
@@ -74,6 +74,7 @@ const AnimatedPortfolio = ({ dictionary }: { dictionary: HeroContent }) => {
       image: "/5.png",
     },
   ];
+  
 
   return (
     <FramerComponent

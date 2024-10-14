@@ -67,6 +67,9 @@
   "Talk": {
     "title": "LET'S TALK",
     "subtitle": "About your",
-    "subtitle2": "Next project"
+    "subtitle2": "Next project",
+    "input1": "Name",
+    "input2": "Email",
+    "input3": "Message"
   }
 }

@@ -67,6 +67,9 @@
   "Talk": {
     "title": "HABLEMOS",
     "subtitle": "Sobre su",
-    "subtitle2": "Proximo proyecto"
+    "subtitle2": "Proximo proyecto",
+    "input1": "Nombre",
+    "input2": "Correo Electrónico",
+    "input3": "Mensaje"
   }
 }

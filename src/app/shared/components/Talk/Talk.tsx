@@ -1,8 +1,58 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import { TalkContent } from "@/types/dictionary";
 import { FramerComponent } from "@/Framer/FramerComponent";
+import emailjs from "@emailjs/browser";
 
 export default function Talk({ dictionary }: { dictionary: TalkContent }) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [dots, setDots] = useState<JSX.Element[]>([]); // Estado para el fondo
+
+  useEffect(() => {
+    const generatedDots = [...Array(200)].map((_, i) => (
+      <div
+        key={i}
+        className="absolute bg-white rounded-full"
+        style={{
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          width: `${Math.random() * 3 + 1}px`,
+          height: `${Math.random() * 3 + 1}px`,
+        }}
+      ></div>
+    ));
+    setDots(generatedDots);
+  }, []); // Este efecto se ejecuta solo una vez al montar el componente
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Aquí usamos emailjs para enviar el mensaje
+    const serviceID = "service_19pzo67";
+    const templeteID = "template_flxurbg";
+    const publicKey = "SrXxAldR5RwaYNF6_";
+
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      message: message,
+    };
+
+    emailjs
+      .send(serviceID, templeteID, templateParams, publicKey)
+      .then((response) => {
+        console.log("Email enviado correctamente", response.status, response.text);
+        setName("");
+        setEmail("");
+        setMessage("");
+      })
+      .catch((error) => {
+        console.error("Error al enviar el email", error);
+      });
+  };
+
   return (
     <div className="relative w-full text-white py-16 overflow-hidden">
       {/* Dotted background */}
@@ -12,18 +62,7 @@ export default function Talk({ dictionary }: { dictionary: TalkContent }) {
         animationAnimate={{ opacity: 0.2 }}
         animationTransition={{ duration: 1.5 }}
       >
-        {[...Array(200)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute bg-white rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 3 + 1}px`,
-              height: `${Math.random() * 3 + 1}px`,
-            }}
-          ></div>
-        ))}
+        {dots} {/* Usamos el estado dots en lugar de generarlos aquí */}
       </FramerComponent>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -72,53 +111,38 @@ export default function Talk({ dictionary }: { dictionary: TalkContent }) {
             animationWhileInView={{ opacity: 1, scale: 1 }}
             animationViewPort={{ once: true }}
           >
-            <form className="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6">
+            <form
+              className="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6"
+              onSubmit={handleSubmit}
+            >
               <FramerComponent
-                style="text-2xl font-bold mb-4"
-                animationInitial={{ opacity: 0, y: -20 }}
-                animationAnimate={{ opacity: 1, y: 0 }}
-                animationTransition={{ duration: 0.5, delay: 0.4 }}
+                style="mb-4"
+                animationInitial={{ opacity: 0, x: -20 }}
+                animationAnimate={{ opacity: 1, x: 0 }}
+                animationTransition={{ duration: 0.5, delay: 0.6 }}
               >
-                <h3>Contáctenos</h3>
+                <label>
+                  Nombre
+                  <input
+                    className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md"
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </label>
+                <label>
+                  Correo electrónico
+                  <input
+                    className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </label>
+                <label>
+                  Mensaje
+                  <textarea
+                    className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md"
+                    onChange={(e) => setMessage(e.target.value)}
+                  />
+                </label>
               </FramerComponent>
-              {["name", "email", "message"].map((field, index) => (
-                <FramerComponent
-                  key={field}
-                  style="mb-4"
-                  animationInitial={{ opacity: 0, x: -20 }}
-                  animationAnimate={{ opacity: 1, x: 0 }}
-                  animationTransition={{
-                    duration: 0.5,
-                    delay: 0.6 + index * 0.1,
-                  }}
-                >
-                  <div>
-                    <label
-                      htmlFor={field}
-                      className="block text-sm font-medium mb-1"
-                    >
-                      {field === "name"
-                        ? "Nombre"
-                        : field === "email"
-                        ? "Email"
-                        : "Mensaje"}
-                    </label>
-                    {field !== "message" ? (
-                      <input
-                        type={field === "email" ? "email" : "text"}
-                        id={field}
-                        className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md"
-                      />
-                    ) : (
-                      <textarea
-                        id={field}
-                        rows={4}
-                        className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md"
-                      ></textarea>
-                    )}
-                  </div>
-                </FramerComponent>
-              ))}
               <FramerComponent
                 style="w-full"
                 animationInitial={{ opacity: 0, y: 20 }}
