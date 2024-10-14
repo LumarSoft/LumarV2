@@ -1,0 +1,72 @@
+{
+  "Hero": {
+    "title": "Act Now",
+    "subtitle": [
+      "Create the future.",
+      "Drive your success.",
+      "Elevate your business.",
+      "Be the difference.",
+      "Make it happen.",
+      "Make it real."
+    ]
+  },
+  "About": {
+    "title": "ABOUT US",
+    "subtitle": "Our Approach and Dedication",
+    "description": "At LumarSoft, we are a software consulting firm specializing in providing customized and efficient solutions for businesses of all sizes. Our team of development experts is committed to being your strategic partner in achieving your technological goals, delivering high-quality solutions that drive the success of our clients. Our mission is to thoroughly understand your needs and provide innovations that exceed your expectations, with a constant focus on technical excellence and customer satisfaction."
+  },
+  "Portfolio": {
+    "title": "PORTFOLIO",
+    "subtitle": "Discover Our Projects and Success Stories"
+  },
+  "Services": {
+    "title": "SERVICES",
+    "subtitle": "We help create strategies,",
+    "subtitle2": "design and development.",
+    "services": [
+      {
+        "icon": "Monitor",
+        "title": "Ecommerce",
+        "description": "We develop customized ecommerce platforms to maximize your online sales."
+      },
+      {
+        "icon": "Zap",
+        "title": "Landing Pages",
+        "description": "We create effective landing pages that increase conversion and capture leads."
+      },
+      {
+        "icon": "Box",
+        "title": "Custom Web Apps",
+        "description": "We design custom web applications tailored to the specific needs of your business."
+      },
+      {
+        "icon": "Wand2",
+        "title": "Personal Blogs",
+        "description": "We develop personalized blogs that allow users to share their ideas and experiences effectively."
+      }
+    ]
+  },
+  "Values": {
+    "title": "VALUES",
+    "subtitle": "Committed to Creativity and Excellence",
+    "description": "At LumarSoft, we are guided by our core values: commitment to our clients and the pursuit of effective solutions in every project. We transform ideas into sustainable realities, always seeking the best way to tackle each challenge.",
+    "values": [
+      "Commitment to excellence in every project.",
+      "Transparency and honesty in all our interactions.",
+      "Close collaboration and open communication with our clients.",
+      "Creativity in the search for unique and effective solutions."
+    ],
+    "button": "Discover",
+    "image": "/sobre_nosotros_2.jpg"
+  },
+  "Staff": {
+    "title": "TEAM",
+    "subtitle": "The talent behind LumarSoft.",
+    "description": "We are a group of passionate developers and creatives working together to bring innovative projects to life. Each of us contributes our experience and dedication to exceed expectations and create solutions that positively impact our clients."
+  },
+  "Talk": {
+    "title": "LET'S TALK",
+    "subtitle": "About your",
+    "subtitle2": "Next project"
+  }
+}
