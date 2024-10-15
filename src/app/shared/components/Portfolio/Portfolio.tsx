@@ -6,11 +6,15 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import { HeroContent } from "@/types/dictionary";
+import { PortfolioContent } from "@/types/dictionary";
 import { FramerComponent } from "@/Framer/FramerComponent";
 import Autoplay from "embla-carousel-autoplay";
 
-const AnimatedPortfolio = ({ dictionary }: { dictionary: HeroContent }) => {
+const AnimatedPortfolio = ({
+  dictionary,
+}: {
+  dictionary: PortfolioContent;
+}) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -33,48 +37,6 @@ const AnimatedPortfolio = ({ dictionary }: { dictionary: HeroContent }) => {
       },
     },
   };
-
-  // Datos de ejemplo para los proyectos
-  const projects = [
-    {
-      title: "END SRL",
-      description:
-        "Rediseño integral del sitio web para END SRL, una empresa líder en talleres aeronáuticos de reparación. Modernizamos su presencia digital con un enfoque en mejorar la experiencia de usuario, adaptando el diseño a los estándares actuales y destacando sus servicios especializados.",
-      image: "/0.png",
-    },
-    {
-      title: "Landing Page para UESEVI",
-      description:
-        "Diseño de una landing page para UESEVI con el objetivo de dar a conocer su identidad y servicios. La página destaca los valores del gremio y facilita el acceso a información clave para miembros y público en general, con un diseño limpio y profesional.",
-      image: "/4.png",
-    },
-    {
-      title: "Panel de Administración para UESEVI",
-      description:
-        "Desarrollo de un panel de administración para UESEVI, el gremio de empleados de seguridad y vigilancia de Rosario. La plataforma permite gestionar información interna de manera eficiente, con herramientas avanzadas para la administración de datos y la generación de informes.",
-      image: "/3.png",
-    },
-    {
-      title: "E-commerce de Tecnología",
-      description:
-        "Creación de un e-commerce especializado en productos de tecnología. Esta plataforma permite a los usuarios explorar una amplia gama de productos y, en lugar de realizar compras directamente, se redirige al chat con el vendedor para coordinar la compra, facilitando así una comunicación más directa y personalizada.",
-      image: "/2.png",
-    },
-    {
-      title: "John Pellegrini Management Group",
-      description:
-        "Desarrollo de una plataforma administrativa para John Pellegrini Management Group, una aseguradora. La solución permite a los empleados gestionar eficientemente la base de datos de clientes, optimizando los procesos internos con un sistema seguro y personalizado.",
-      image: "/1.png",
-    },
-    {
-      title:
-        "Panel de Administración y Sorteos para Mutual de Suboficiales Retirados de Gendarmería Nacional",
-      description:
-        "Desarrollo de un panel de administración con funcionalidades de sorteos para la Mutual de Suboficiales Retirados de Gendarmería Nacional. El sistema permite gestionar la membresía y realizar sorteos de manera automatizada, con reportes en tiempo real y gestión eficiente de la información.",
-      image: "/5.png",
-    },
-  ];
-  
 
   return (
     <FramerComponent
@@ -120,7 +82,7 @@ const AnimatedPortfolio = ({ dictionary }: { dictionary: HeroContent }) => {
         ]}
       >
         <CarouselContent className="-ml-4">
-          {projects.map((project, index) => (
+          {dictionary.projects.map((project, index) => (
             <CarouselItem key={index} className="pl-4 md:basis-1/2">
               <FramerComponent animationVariants={itemVariants}>
                 <Card className="h-128 overflow-hidden relative group">

@@ -14,7 +14,7 @@ export type IconNames = keyof typeof iconMap;
 export interface Dictionary {
   Hero: HeroContent;
   About: AboutContent;
-  Portfolio: HeroContent;
+  Portfolio: PortfolioContent;
   Services: ServicesContent;
   Values: ValuesContent;
   Staff: AboutContent;
@@ -24,6 +24,18 @@ export interface Dictionary {
 export interface HeroContent {
   title: string;
   subtitle: string;
+}
+
+export interface PortfolioContent {
+  title: string;
+  subtitle: string;
+  projects: ProjectContent[];
+}
+
+export interface ProjectContent {
+  title: string;
+  description: string;
+  image: string;
 }
 
 export interface AboutContent {
