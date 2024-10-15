@@ -12,7 +12,7 @@ export default function AnimatedHero({
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-x-hidden">
       <FramerComponent
-        style="text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative z-10 text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-extrabold tracking-tight"
+        style="text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative z-10 text-5xl lg:text-8xl font-extrabold tracking-tight"
         animationInitial={{ opacity: 0, y: 50 }}
         animationAnimate={{ opacity: 1, y: 0 }}
         animationTransition={{ duration: 0.8, ease: "easeOut" }}
