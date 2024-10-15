@@ -133,10 +133,10 @@ const AnimatedPortfolio = ({ dictionary }: { dictionary: HeroContent }) => {
                       />
                       <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
                       <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 className="text-xl font-bold mb-2">
+                        <h3 className="text-base lg:text-xl font-bold mb-2">
                           {project.title}
                         </h3>
-                        <p>{project.description}</p>
+                        <p className="text-sm">{project.description}</p>
                       </div>
                     </div>
                   </CardContent>
