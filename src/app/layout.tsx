@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./shared/components/Navbar/Navbar";
+import { OpenHomeAnimation } from "./shared/components/OpenHome/OpenModuleAnimation";
+import "@/app/shared/components/OpenHome/animation.scss";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -52,6 +54,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden dark`}
       >
         <Navbar />
+        <OpenHomeAnimation />
         {children}
       </body>
     </html>

@@ -1,0 +1,56 @@
+.scale-out-center {
+  -webkit-animation: scale-out-center 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: scale-out-center 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  background-color: #09090b;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  z-index: 50;
+  overflow-y: hidden;
+}
+
+.rotating-logo {
+  -webkit-animation: rotate-scale-out 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: rotate-scale-out 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@-webkit-keyframes rotate-scale-out {
+  0% {
+    -webkit-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0) rotate(360deg);
+    transform: scale(0) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate-scale-out {
+  0% {
+    -webkit-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0) rotate(360deg);
+    transform: scale(0) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+.plane_home {
+  position: absolute;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
