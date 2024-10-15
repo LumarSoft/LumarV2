@@ -13,7 +13,7 @@ export default function HomeModule({ dictionary }: { dictionary: Dictionary }) {
   return (
     <div className="overflow-x-hidden ">
       <FramerComponent
-        style="absolute bottom-0 left-0 w-[100px] h-[100px] md:w-[250px] md:h-[250px] bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mix-blend-screen filter blur-[110px] opacity-100 -translate-x-1/2 -translate-y-32"
+        style="absolute bottom-0 left-0 w-[250px] h-[250px] bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mix-blend-screen filter blur-[110px] opacity-100 -translate-x-1/2 -translate-y-32"
         animationInitial={{ scale: 0, opacity: 0 }}
         animationAnimate={{ scale: 1, opacity: 1 }}
         animationTransition={{
@@ -22,7 +22,7 @@ export default function HomeModule({ dictionary }: { dictionary: Dictionary }) {
         }}
       />
       <FramerComponent
-        style="absolute top-56 right-0 w-[200px] h-[200px] md:w-[250px] md:h-[250px] bg-gradient-to-l from-purple-500 to-pink-500 rounded-full mix-blend-screen filter blur-[110px] opacity-100 lg:translate-x-1/2"
+        style="absolute top-56 right-0 w-[250px] h-[250px] bg-gradient-to-l from-purple-500 to-pink-500 rounded-full mix-blend-screen filter blur-[110px] opacity-100 lg:translate-x-1/2"
         animationInitial={{ scale: 0, opacity: 0 }}
         animationAnimate={{ scale: 1, opacity: 1 }}
         animationTransition={{

@@ -60,13 +60,13 @@ export default function AnimatedServices({
 
   return (
     <FramerComponent
-      style="text-white px-4 sm:px-6 lg:px-8 relative min-h-screen flex items-center justify-center"
+      style="text-white px-4 sm:px-6 lg:px-8 relative flex items-center justify-center py-10 lg:py-40"
       animationInitial="hidden"
       animationWhileInView="visible"
       animationViewPort={{ once: true }}
       animationVariants={containerVariants}
     >
-      <div className="max-w-7xl mx-auto space-y-4">
+      <div className="max-w-7xl mx-auto space-y-4 ">
         <FramerComponent
           style="lg:text-center"
           animationVariants={titleVariants}
