@@ -43,7 +43,11 @@ export default function Talk({ dictionary }: { dictionary: TalkContent }) {
     emailjs
       .send(serviceID, templeteID, templateParams, publicKey)
       .then((response) => {
-        console.log("Email enviado correctamente", response.status, response.text);
+        console.log(
+          "Email enviado correctamente",
+          response.status,
+          response.text
+        );
         setName("");
         setEmail("");
         setMessage("");
@@ -126,6 +130,7 @@ export default function Talk({ dictionary }: { dictionary: TalkContent }) {
                   <input
                     className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md"
                     onChange={(e) => setName(e.target.value)}
+                    required
                   />
                 </label>
                 <label>
@@ -133,6 +138,8 @@ export default function Talk({ dictionary }: { dictionary: TalkContent }) {
                   <input
                     className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md"
                     onChange={(e) => setEmail(e.target.value)}
+                    required
+                    type="email"
                   />
                 </label>
                 <label>
@@ -140,6 +147,7 @@ export default function Talk({ dictionary }: { dictionary: TalkContent }) {
                   <textarea
                     className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md"
                     onChange={(e) => setMessage(e.target.value)}
+                    required
                   />
                 </label>
               </FramerComponent>
