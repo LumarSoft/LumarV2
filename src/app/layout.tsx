@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script"; // Importa next/script
 import "./globals.css";
 import Navbar from "./shared/components/Navbar/Navbar";
 import { OpenHomeAnimation } from "./shared/components/OpenHome/OpenModuleAnimation";
@@ -50,6 +51,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3HW89X9HZ" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-Z3HW89X9HZ');
+          `}
+        </Script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden dark`}
       >
