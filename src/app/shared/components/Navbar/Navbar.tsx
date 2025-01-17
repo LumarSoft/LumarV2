@@ -5,12 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { FramerComponent } from "@/Framer/FramerComponent";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,7 +16,10 @@ const Navbar = () => {
   const navItems = [
     { href: "#hero", label: language === "es" ? "Inicio" : "Home" },
     { href: "#about", label: language === "es" ? "Nosotros" : "About" },
-    { href: "#portfolio", label: language === "es" ? "Portafolio" : "Portfolio" },
+    {
+      href: "#portfolio",
+      label: language === "es" ? "Portafolio" : "Portfolio",
+    },
     { href: "#services", label: language === "es" ? "Servicios" : "Services" },
     { href: "#values", label: language === "es" ? "Valores" : "Values" },
     { href: "#staff", label: language === "es" ? "Equipo" : "Staff" },
