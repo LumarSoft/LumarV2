@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "react-toastify";
 import { Loader2 } from "lucide-react";
 
 export default function Talk({ dictionary }: { dictionary: TalkContent }) {
@@ -16,7 +16,6 @@ export default function Talk({ dictionary }: { dictionary: TalkContent }) {
   const [message, setMessage] = useState("");
   const [dots, setDots] = useState<JSX.Element[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
 
   useEffect(() => {
     const generatedDots = [...Array(200)].map((_, i) => (
@@ -63,20 +62,30 @@ export default function Talk({ dictionary }: { dictionary: TalkContent }) {
       );
 
       if (response.status === 200) {
-        toast({
-          title: dictionary.sendMessage,
-          description: dictionary.successMessage,
-          className: "bg-green-500 text-white border-none",
+        toast.success(dictionary.successMessage, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
         });
         resetForm();
       }
     } catch (error) {
-      toast({
-        title: "Error",
-        description:
-          "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.",
-        variant: "destructive",
-      });
+      toast.error(
+        "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+        {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }
+      );
       console.error("Error al enviar el email", error);
     } finally {
       setIsLoading(false);

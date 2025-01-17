@@ -5,7 +5,8 @@ import "./globals.css";
 import Navbar from "./shared/components/Navbar/Navbar";
 import { OpenHomeAnimation } from "./shared/components/OpenHome/OpenModuleAnimation";
 import "@/app/shared/components/OpenHome/animation.scss";
-import { Toaster } from "@/components/ui/toaster";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -72,7 +73,7 @@ export default function RootLayout({
         <Navbar />
         <OpenHomeAnimation />
         {children}
-        <Toaster />
+        <ToastContainer />
       </body>
     </html>
   );
