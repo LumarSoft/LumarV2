@@ -102,6 +102,10 @@
     "subtitle2": "Próximo proyecto",
     "input1": "Nombre",
     "input2": "Correo Electrónico",
-    "input3": "Mensaje"
+    "input3": "Mensaje",
+    "sendMessage": "¡Mensaje enviado!",
+    "successMessage": "Nos pondremos en contacto contigo pronto.",
+    "errorSendMessage": "¡Error al enviar el mensaje!",
+    "errorMessage": "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo."
   }
 }

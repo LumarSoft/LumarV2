@@ -3,12 +3,20 @@ import React, { useState, useEffect } from "react";
 import { TalkContent } from "@/types/dictionary";
 import { FramerComponent } from "@/Framer/FramerComponent";
 import emailjs from "@emailjs/browser";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
+import { Loader2 } from "lucide-react";
 
 export default function Talk({ dictionary }: { dictionary: TalkContent }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [dots, setDots] = useState<JSX.Element[]>([]); // Estado para el fondo
+  const [dots, setDots] = useState<JSX.Element[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   useEffect(() => {
     const generatedDots = [...Array(200)].map((_, i) => (
@@ -24,49 +32,66 @@ export default function Talk({ dictionary }: { dictionary: TalkContent }) {
       ></div>
     ));
     setDots(generatedDots);
-  }, []); // Este efecto se ejecuta solo una vez al montar el componente
+  }, []);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const resetForm = () => {
+    setName("");
+    setEmail("");
+    setMessage("");
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    // Aquí usamos emailjs para enviar el mensaje
-    const serviceID = "service_19pzo67";
-    const templeteID = "template_flxurbg";
-    const publicKey = "SrXxAldR5RwaYNF6_";
+    const serviceID = "service_pkk7blb";
+    const templeteID = "template_ry3na8b";
+    const publicKey = "8GshpNeyfelrL_CQ2";
 
     const templateParams = {
-      from_name: name,
-      from_email: email,
+      user_name: name,
+      user_email: email,
       message: message,
     };
 
-    emailjs
-      .send(serviceID, templeteID, templateParams, publicKey)
-      .then((response) => {
-        console.log(
-          "Email enviado correctamente",
-          response.status,
-          response.text
-        );
-        setName("");
-        setEmail("");
-        setMessage("");
-      })
-      .catch((error) => {
-        console.error("Error al enviar el email", error);
+    try {
+      const response = await emailjs.send(
+        serviceID,
+        templeteID,
+        templateParams,
+        publicKey
+      );
+
+      if (response.status === 200) {
+        toast({
+          title: dictionary.sendMessage,
+          description: dictionary.successMessage,
+          className: "bg-green-500 text-white border-none",
+        });
+        resetForm();
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description:
+          "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+        variant: "destructive",
       });
+      console.error("Error al enviar el email", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <div className="relative w-full text-white py-16 overflow-hidden">
-      {/* Dotted background */}
       <FramerComponent
         style="absolute inset-0 opacity-20"
         animationInitial={{ opacity: 0 }}
         animationAnimate={{ opacity: 0.2 }}
         animationTransition={{ duration: 1.5 }}
       >
-        {dots} {/* Usamos el estado dots en lugar de generarlos aquí */}
+        {dots}
       </FramerComponent>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -116,55 +141,74 @@ export default function Talk({ dictionary }: { dictionary: TalkContent }) {
             animationViewPort={{ once: true }}
           >
             <form
-              className="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6"
+              className="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6 space-y-4"
               onSubmit={handleSubmit}
             >
               <FramerComponent
-                style="mb-4"
+                style="space-y-4"
                 animationInitial={{ opacity: 0, x: -20 }}
                 animationAnimate={{ opacity: 1, x: 0 }}
                 animationTransition={{ duration: 0.5, delay: 0.6 }}
               >
-                <label>
-                  Nombre
-                  <input
-                    className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md"
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="text-white">
+                    Nombre
+                  </Label>
+                  <Input
+                    id="name"
+                    value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
+                    className="bg-white bg-opacity-20 border-0 text-white"
                   />
-                </label>
-                <label>
-                  Correo electrónico
-                  <input
-                    className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md"
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-white">
+                    Correo electrónico
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    type="email"
+                    className="bg-white bg-opacity-20 border-0 text-white"
                   />
-                </label>
-                <label>
-                  Mensaje
-                  <textarea
-                    className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md"
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="text-white">
+                    Mensaje
+                  </Label>
+                  <Textarea
+                    id="message"
+                    value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     required
+                    className="bg-white bg-opacity-20 border-0 text-white min-h-[100px]"
                   />
-                </label>
+                </div>
               </FramerComponent>
+
               <FramerComponent
                 style="w-full"
                 animationInitial={{ opacity: 0, y: 20 }}
                 animationAnimate={{ opacity: 1, y: 0 }}
                 animationTransition={{ duration: 0.5, delay: 0.9 }}
-                animationWhileHover={{ scale: 1.05 }}
-                animationWhileInView={{ scale: [null, 1.02, 1] }}
               >
-                <button
+                <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-cyan-400 to-purple-500 text-white font-bold py-2 px-4 rounded-md hover:opacity-90 transition-opacity"
+                  disabled={isLoading}
+                  className="w-full bg-gradient-to-r from-cyan-400 to-purple-500 text-white"
                 >
-                  Enviar
-                </button>
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Enviando...
+                    </>
+                  ) : (
+                    "Enviar"
+                  )}
+                </Button>
               </FramerComponent>
             </form>
           </FramerComponent>

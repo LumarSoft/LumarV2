@@ -102,6 +102,10 @@
     "subtitle2": "Next Project",
     "input1": "Name",
     "input2": "Email",
-    "input3": "Message"
+    "input3": "Message",
+    "sendMessage": "¡Message sent!",
+    "successMessage": "We will get back to you soon.",
+    "errorSendMessage": "¡Error sending message!",
+    "errorMessage": "There was an error sending the message. Please try again."
   }
 }

@@ -61,6 +61,10 @@ export interface TalkContent {
   title: string;
   subtitle: string;
   subtitle2: string;
+  sendMessage: string;
+  successMessage: string;
+  errorSendMessage: string;
+  errorMessage: string;
 }
 
 export interface ValuesContent {

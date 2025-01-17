@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "./shared/components/Navbar/Navbar";
 import { OpenHomeAnimation } from "./shared/components/OpenHome/OpenModuleAnimation";
 import "@/app/shared/components/OpenHome/animation.scss";
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -52,7 +53,10 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3HW89X9HZ" />
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-Z3HW89X9HZ"
+        />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -68,6 +72,7 @@ export default function RootLayout({
         <Navbar />
         <OpenHomeAnimation />
         {children}
+        <Toaster />
       </body>
     </html>
   );
