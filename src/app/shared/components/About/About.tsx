@@ -9,7 +9,7 @@ export default function AnimatedAbout({
   dictionary: AboutContent;
 }) {
   return (
-    <section className="py-32 relative">
+    <section className="py-32 relative" id="about">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-center gap-12">
           <FramerComponent

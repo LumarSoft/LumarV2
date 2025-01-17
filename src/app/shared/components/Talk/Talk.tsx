@@ -93,7 +93,7 @@ export default function Talk({ dictionary }: { dictionary: TalkContent }) {
   };
 
   return (
-    <div className="relative w-full text-white py-16 overflow-hidden">
+    <div id="talk" className="relative w-full text-white py-16 overflow-hidden">
       <FramerComponent
         style="absolute inset-0 opacity-20"
         animationInitial={{ opacity: 0 }}

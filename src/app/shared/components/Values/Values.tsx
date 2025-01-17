@@ -15,7 +15,10 @@ export default function AnimatedValues({
   };
 
   return (
-    <div className="text-white min-h-screen flex items-center justify-center overflow-hidden">
+    <div
+      id="values"
+      className="text-white min-h-screen flex items-center justify-center overflow-hidden"
+    >
       <FramerComponent
         style="container mx-auto px-4 py-16"
         animationInitial={{ opacity: 0 }} // Eliminado el desplazamiento

@@ -10,7 +10,7 @@ export default function AnimatedHero({
   dictionary: HeroContent;
 }) {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-x-hidden">
+    <div id="hero" className="relative min-h-screen flex items-center justify-center overflow-x-hidden">
       <FramerComponent
         style="text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative z-10 text-5xl lg:text-8xl font-extrabold tracking-tight"
         animationInitial={{ opacity: 0, y: 50 }}
