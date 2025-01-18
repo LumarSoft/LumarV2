@@ -7,6 +7,7 @@ import { OpenHomeAnimation } from "./shared/components/OpenHome/OpenModuleAnimat
 import "@/app/shared/components/OpenHome/animation.scss";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import WspLogo from "./shared/components/WspLogo/WspLogo";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -74,6 +75,7 @@ export default function RootLayout({
         <OpenHomeAnimation />
         {children}
         <ToastContainer />
+        <WspLogo />
       </body>
     </html>
   );
