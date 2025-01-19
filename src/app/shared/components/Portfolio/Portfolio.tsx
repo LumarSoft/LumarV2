@@ -78,7 +78,7 @@ const AnimatedPortfolio = ({
           className="pr-2"
           plugins={[
             Autoplay({
-              delay: 2000,
+              delay: 6000,
             }),
           ]}
         >
