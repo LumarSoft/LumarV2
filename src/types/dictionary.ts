@@ -24,6 +24,8 @@ export interface Dictionary {
 export interface HeroContent {
   title: string;
   subtitle: string;
+  cta: string;
+  btncta: string;
 }
 
 export interface PortfolioContent {

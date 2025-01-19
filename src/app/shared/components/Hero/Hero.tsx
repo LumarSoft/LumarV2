@@ -51,14 +51,14 @@ export default function AnimatedHero({
       >
         <div className="space-y-4">
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            ¿Listo para comenzar? Contáctanos hoy mismo
+            {dictionary.cta}
           </p>
           <Button
             size="lg"
             className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 text-white hover:opacity-90 transition-opacity font-bold group"
             onClick={() => (window.location.href = "#talk")}
           >
-            Contactar ahora
+            {dictionary.btncta}
             <motion.div
               animate={{ x: [0, 4, 0] }}
               transition={{

@@ -1,6 +1,8 @@
 {
   "Hero": {
     "title": "Act Now",
+    "cta": "Ready to get started? Contact us today",
+    "btncta": "Contact now",
     "subtitle": [
       "Create the future.",
       "Drive your success.",
